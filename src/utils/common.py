@@ -223,6 +223,7 @@ def load_pretrained(
         model_to_load = model_args.model_name_or_path
 
     # Load and prepare pretrained models (without valuehead).
+    print('打印加载参数',model_to_load,config,config_kwargs)
     model = AutoModel.from_pretrained(model_to_load, config=config, **config_kwargs)
 
     # Register auto class to save the custom code files.
@@ -440,7 +441,7 @@ def prepare_data(
                 logger.warning("Checksum failed: missing SHA-1 hash value in dataset_info.json or too many files.")
         else:
             raise NotImplementedError
-
+        print(1111111111111111111111,data_path)
         raw_datasets = load_dataset(
             data_path,
             data_files=data_files,
