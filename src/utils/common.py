@@ -224,7 +224,7 @@ def load_pretrained(
 
     # Load and prepare pretrained models (without valuehead).
     print('打印加载参数',model_to_load,config,config_kwargs)
-    model = AutoModel.from_pretrained(model_to_load, config=config, **config_kwargs)
+    model = AutoModel.from_pretrained(model_to_load, config=config, **config_kwargs).half().cuda()
 
     # Register auto class to save the custom code files.
     if hasattr(config, "auto_map") and "AutoConfig" in config.auto_map:
